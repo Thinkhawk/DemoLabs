@@ -3,4 +3,6 @@
   <Project Path="DemoWinHelloWorld/DemoWinHelloWorld.csproj" />
   <Project Path="Demo_ClassHierarchies/Demo_ClassHierarchies.csproj" Id="6745fcae-9dba-40fc-9e21-87a2ef4699a4" />
   <Project Path="Demo_Interface/Demo_Interface.csproj" Id="f2a609ff-1fe2-4215-b8e3-4770d1e098b8" />
+  <Project Path="Demo_Interface02/Demo_Interface02.csproj" Id="0d3c2dc4-acb8-4164-88de-c75996b614fe" />
+  <Project Path="Demo_Interface03/Demo_Interface03.csproj" Id="6a1e122c-7152-4899-b578-bcdad6656b9f" />
 </Solution>

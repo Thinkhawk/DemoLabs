@@ -43,6 +43,7 @@ builder.Services.AddScoped<IMyScopedService, MyService>();
 
 
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -67,3 +68,4 @@ app.MapControllers();
 
 
 app.Run();
+

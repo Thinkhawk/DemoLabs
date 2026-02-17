@@ -19,7 +19,9 @@ p2b.Step2Event += () =>                                     // subscribe to the 
 {
     Console.WriteLine("called using Event");
 };
-p2b.DoSomething();
+p2b.DoSomethingUsingDelegate();
+// p2b.DoSomethingInParallelUsingThread();
+// p2b.DoSomethingInParallelUsingTask();
 
 Console.WriteLine();
 
@@ -28,7 +30,8 @@ Console.WriteLine("--- demo of IoC using Interface");
 IStepActivity objGold = new GoldVersionProcess();
 IStepActivity objSilver = new SilverVersionProcess();
 Process3 p3 = new Process3();
-p3.DoSomething(objSilver); // p3.DoSomething(objGold);
+p3.DoSomething(objSilver); 
+// p3.DoSomething(objGold);
 Console.WriteLine();
 
 internal class X

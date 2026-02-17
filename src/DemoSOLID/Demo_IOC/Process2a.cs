@@ -10,9 +10,9 @@ internal class Process2a
     {
         this.Step1();
 
-        //if (step2Handler is not null)
+        //if (step2Handler is not null)         // check if subscribed
         //{
-        //    step2Handler();
+        //    step2Handler();                   // invoke the method pointed to by the delegate
         //}
 
         step2Handler?.Invoke();

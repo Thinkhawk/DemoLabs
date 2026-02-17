@@ -1,0 +1,33 @@
+@DemoWebApi_HostAddress = http://localhost:5083
+
+GET {{DemoWebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{DemoWebApi_HostAddress}}/api/Demo/GetInfo
+Accept: application/json; charset=utf-8
+
+###
+
+GET {{DemoWebApi_HostAddress}}/api/Demo/GetInfo
+Accept: application/json; charset=utf-8
+
+###
+
+GET {{DemoWebApi_HostAddress}}/api/Demo/GetInfo
+Accept: application/xml
+
+###
+
+GET {{DemoWebApi_HostAddress}}/api/Demo/GetInfoInXml
+
+###
+
+GET {{DemoWebApi_HostAddress}}/api/Demo/GetInfoInXml
+Accept: application/json
+
+###
+
+
+

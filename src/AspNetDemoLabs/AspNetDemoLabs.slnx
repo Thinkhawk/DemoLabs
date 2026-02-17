@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="DemoWebApi/DemoWebApi.csproj" Id="df388c20-7a5f-4128-9a47-c200bb3e337e" />
   <Project Path="DemoWebApp1.Api/DemoWebApp1.Api.csproj" />
   <Project Path="DemoWebApp1.MinimalApi/DemoWebApp1.MinimalApi.csproj" />
   <Project Path="DemoWebApp1.MVC/DemoWebApp1.MVC.csproj" />

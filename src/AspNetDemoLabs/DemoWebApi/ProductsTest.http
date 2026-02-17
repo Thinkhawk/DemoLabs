@@ -1,0 +1,65 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+@apiUrl = http://localhost:5083/api/Products
+
+
+GET {{apiUrl}}/
+
+###
+
+GET {{apiUrl}}/GetAll
+
+###
+
+GET {{apiUrl}}/GetAll
+Accept: application/xml
+
+###
+
+POST {{apiUrl}}
+Content-Type: application/json
+
+{
+    "productId": 9,
+    "name": "New Product",
+    "description": "some description",
+    "price": 45.75
+}
+
+###
+
+
+POST {{apiUrl}}
+Content-Type: application/json
+
+{
+    "productId": 10,
+    "name": "New Product 10",
+    "description": null,
+    "price": 45.75
+}
+
+###
+
+POST {{apiUrl}}
+Content-Type: application/json
+
+{
+    "productId": 11 ,
+    "name": "New Product 11",
+    "price": 45.75
+}
+
+###
+
+POST {{apiUrl}}
+Content-Type: application/json
+
+{
+    "ProductId": 1000,
+    "Name": "New Product 1000",
+    "Description2": "some description",
+    "Price": 45.75
+}
+
+###

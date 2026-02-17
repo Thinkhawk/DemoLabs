@@ -10,7 +10,7 @@ interface IStepActivity
 
 internal class Process4
 {
-    IStepActivity _activity;
+    private IStepActivity _activity;
 
     // The Dependency is Injected during construction of the object
     internal Process4(IStepActivity activity)

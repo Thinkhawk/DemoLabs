@@ -16,16 +16,20 @@ static void Demo01Test()
 
     Console.WriteLine($"Invoice TOTAL Amount: {totalAmount}");
 
-    proposedAmount = invoice.GetDiscount(totalAmount, Demo_OpenClosedPrinciple.Demo01.InvoiceType.ProposedInvoice);
+    proposedAmount = invoice.GetDiscount(
+        totalAmount, 
+        Demo_OpenClosedPrinciple.Demo01.InvoiceType.ProposedInvoice);
     Console.WriteLine($"Invoice PROPOSED Amount: {proposedAmount}");
 
-    finalAmount = invoice.GetDiscount(totalAmount, Demo_OpenClosedPrinciple.Demo01.InvoiceType.FinalInvoice);
+    finalAmount = invoice.GetDiscount(
+        totalAmount, 
+        Demo_OpenClosedPrinciple.Demo01.InvoiceType.FinalInvoice);
     Console.WriteLine($"Invoice FINAL Amount: {finalAmount}");
 }
 
 static void Demo02Test()
 {
-    double totalAmount = 10_000,
+    double totalAmount = 110_000,
            proposedAmount,
            finalAmount;
     Demo_OpenClosedPrinciple.Demo02.Invoice invoice;

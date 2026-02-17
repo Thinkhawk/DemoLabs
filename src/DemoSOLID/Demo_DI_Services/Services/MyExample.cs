@@ -18,7 +18,7 @@ public interface IMyScopedService
 public class MyService
     : IMySingletonService, IMyTransientService, IMyScopedService
 {
-    public Guid Id { get; private set; } = Guid.NewGuid();
+    public Guid Id { get;  set; } = Guid.NewGuid();
 
     //public MyService()
     //{

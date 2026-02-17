@@ -18,7 +18,12 @@ internal interface IBird
     void Fly();
 }
 
-internal abstract class BirdWithFlight : IBird
+internal abstract class Bird
+{
+
+}
+
+internal abstract class BirdWithFlight : Bird, IBird
 {
     public virtual void Fly()
     {
@@ -26,7 +31,7 @@ internal abstract class BirdWithFlight : IBird
     }
 }
 
-internal abstract class FlightlessBird 
+internal abstract class FlightlessBird : Bird
 {
 }
 

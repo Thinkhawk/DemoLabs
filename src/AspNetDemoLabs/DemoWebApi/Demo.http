@@ -1,0 +1,25 @@
+﻿@var1 = https://localhost:7085
+
+
+GET https://localhost:7085/
+
+###
+
+GET {{var1}}/api/Demo/GetMessage
+
+
+###
+
+GET {{var1}}/api/Demo/GetInfo
+Accept: application/json
+
+###
+
+GET {{var1}}/api/Demo/GetInfo
+Accept: application/json; charset=utf-8
+
+###
+
+GET {{var1}}/api/Demo/GetInfo
+Accept: application/xml
+

@@ -1,4 +1,7 @@
+using DemoWebApiDB.Data;
+
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.EntityFrameworkCore;
 
 using Scalar.AspNetCore;
 
@@ -6,12 +9,21 @@ var builder = WebApplication.CreateBuilder(args);
 
 //------- Register needed services to the DI container.
 
-// NOTE: This should be always first!: Define how to connect to your database!
+// --- NOTE: Ensure that this is the FIRST BLOCK OF CODE to Register the DataContext which uses the SQL SErver
+
+//1.  Grab the connection string from the appsetting.json file
 const string ConnectionStringNAME = "DefaultConnectionString";
 string connectionString 
     = builder.Configuration.GetConnectionString(ConnectionStringNAME)
-      ?? throw new Exception($"Connection String '{ConnectionStringNAME}' not defined in appsettings file");
-// TODO: Configure DB Context to use SQL Server!
+      ?? throw new InvalidOperationException($"Connection String '{ConnectionStringNAME}' not defined in appsettings file");
+
+//2. Register the DataContext Service into the DI Container which uses the SQL Server
+builder.Services
+    .AddDbContext<ApplicationDataContext>(options =>
+    {
+        // Register the SQL Server middleware.
+        options.UseSqlServer(connectionString);
+    });
 
 
 // builder.Services.AddControllers();

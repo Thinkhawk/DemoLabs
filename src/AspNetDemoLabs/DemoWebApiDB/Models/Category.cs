@@ -1,10 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-using Microsoft.EntityFrameworkCore;
-
+﻿using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace DemoWebApiDB.Models;
+
 
 /****************
         CREATE TABLE [dbo].[Categories]
@@ -57,6 +55,15 @@ public class Category
 
 
     public string? Description { get; set; }
+
+
+    #region Navigation Properties to Product model (1:many relationship)
+
+    [XmlIgnore]
+    [JsonIgnore]
+    public ICollection<Product>? Products { get; set; }
+
+    #endregion
 
 }
 

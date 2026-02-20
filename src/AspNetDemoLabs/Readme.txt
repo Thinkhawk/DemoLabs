@@ -47,3 +47,21 @@ To register Scalar UI documentation for Open API
     3. Navigate to "/scalar" (Eg: https://localhost:xxxx/scalar)
 
 -----------------------------
+
+    insert
+	    {
+		    name="", description=""
+	    }
+
+    delete
+	    id=2
+
+
+    update 	
+	    id=1,
+	    {
+		    id=2, name="", description=""
+	    }
+
+-----------------------------
+

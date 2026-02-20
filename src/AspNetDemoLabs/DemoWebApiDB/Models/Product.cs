@@ -54,8 +54,8 @@ public class Product
     public int CtgryId { get; set; }                // should be the same data-type as the PK in Categories
 
 
-    [XmlIgnore]
-    [JsonIgnore]
+    // [XmlIgnore]
+    // [JsonIgnore]
     [ForeignKey(nameof(Product.CtgryId))]           // can be replaced by FluentAPI in OnModelCreating()
     public Category? Category { get; set; }
 

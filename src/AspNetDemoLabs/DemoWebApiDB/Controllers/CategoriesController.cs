@@ -120,6 +120,111 @@ public class CategoriesController : ControllerBase
     #endregion
 
 
+    #region GET api/categories/GetWithProducts/{id}
+
+
+    /// <summary>
+    /// Returns a specific category by ID.
+    /// </summary>
+    [HttpGet("GetWithProducts/{id:int}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetWithProducts(int id)
+    {
+        _logger.LogInformation("Fetching category and its products for Id {CategoryId}.", id);
+
+        var category = await _dbContext.Categories
+            .AsNoTracking()
+            // .Include(c => c.Products)
+            .Where(c => c.CategoryId == id)
+            .Select(c => new 
+            {
+                CategoryId = c.CategoryId,
+                Name = c.Name,
+                Description = c.Description,
+                Products = c.Products!.Select( p =>
+                 new {
+                    ID = p.Id,
+                    Name = p.ProductName
+                }).ToList()
+            })
+            .FirstOrDefaultAsync();
+
+        if (category is null)
+        {
+            _logger.LogWarning("Category with Id {CategoryId} not found.", id);
+
+            // return NotFound($"Category with Id {id} was not found.");
+
+            return NotFound(new ProblemDetails
+            {
+                Title = "Resource Not Found",
+                Detail = $"Category with Id {id} was not found.",
+                Status = StatusCodes.Status404NotFound,
+                Instance = HttpContext.Request.Path
+            });
+
+        }
+
+        return Ok(category);
+    }
+
+    #endregion
+
+
+    #region GET api/categories/GetWithProductsWithSlNo/{id}
+
+    /// <summary>
+    /// Returns a specific category by ID.
+    /// </summary>
+    [HttpGet("GetWithProductsWithSlNo/{id:int}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetWithProductsWithSlNo(int id)
+    {
+        _logger.LogInformation("Fetching category and its products for Id {CategoryId}.", id);
+
+        var c = await _dbContext.Categories
+            .AsNoTracking()
+            .Include(c => c.Products)
+            .FirstOrDefaultAsync(c => c.CategoryId == id);
+
+        if (c is null)
+        {
+            _logger.LogWarning("Category with Id {CategoryId} not found.", id);
+
+            // return NotFound($"Category with Id {id} was not found.");
+
+            return NotFound(new ProblemDetails
+            {
+                Title = "Resource Not Found",
+                Detail = $"Category with Id {id} was not found.",
+                Status = StatusCodes.Status404NotFound,
+                Instance = HttpContext.Request.Path
+            });
+
+        }
+
+        var category = new
+        {
+            CategoryId = c.CategoryId,
+            Name = c.Name,
+            Description = c.Description,
+            Products = c.Products!.Select((p, ndx) =>
+                new
+                {
+                    SlNo = ndx + 1,
+                    ID = p.Id,
+                    Name = p.ProductName
+                }).ToList()
+        };
+
+        return Ok(category);
+    }
+
+    #endregion
+
+
     #region POST: api/categories
 
     /// <summary>

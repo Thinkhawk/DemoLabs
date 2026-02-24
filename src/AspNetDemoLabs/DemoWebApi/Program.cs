@@ -2,6 +2,8 @@ using DemoWebApi.Services;
 
 using Microsoft.AspNetCore.Mvc.Formatters;
 
+using Scalar.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 //------------------- Register the services needed, to the DI Container.
@@ -57,6 +59,9 @@ if (app.Environment.IsDevelopment())
 {
     // View the OpenAPI documentation at: https://localhost:7085/openapi/v1.json
     app.MapOpenApi();
+
+    // Register the middleware for Scalar to use OpenAPI documentation
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();

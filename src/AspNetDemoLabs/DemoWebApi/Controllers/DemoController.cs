@@ -20,6 +20,7 @@ namespace DemoWebApi.Controllers
             return "Hello world from GetMessage()";
         }
 
+
         [HttpGet(template: "GetData")]
         public IActionResult GetData()
         {
@@ -56,6 +57,34 @@ namespace DemoWebApi.Controllers
                 new Employee() { Id = 4, Name = "Fourth Employee" },
             };
             return new OkObjectResult(employees);
+        }
+
+
+        
+
+        /// <summary>
+        ///     Returns an image.
+        /// </summary>
+        /// <remarks>
+        ///     Returns an image from the images folder, as a PNG image.
+        /// </remarks>
+        [HttpGet(template: "logo")]
+        [EndpointSummary("Get Image")]
+        [EndpointDescription("Returns an Image as a PNG image.")]
+        [Produces(System.Net.Mime.MediaTypeNames.Image.Png)]                // "image/png"
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult GetImage()
+        {
+            var path = Path.Combine("wwwroot", "images", "sri-ganesh.png");
+            if (!System.IO.File.Exists(path))
+            {
+                return NotFound();
+            }
+
+            var bytes = System.IO.File.ReadAllBytes(path);
+
+            return File(bytes, System.Net.Mime.MediaTypeNames.Image.Png);       // "image/png"
         }
 
     }

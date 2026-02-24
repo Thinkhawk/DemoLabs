@@ -65,3 +65,12 @@ To register Scalar UI documentation for Open API
 
 -----------------------------
 
+SECURITY CONCEPTS
+
+    - Inherit ApplicationDbContext from DbContext, but from IdentityDbContext
+    - OWIN (Open Web Interface for .NET) implementation of KATANA security standard
+        - User (authenticated & anonymous)  ]
+        - Role (for app)                    ]   => Identity
+        - Permission                        ]
+        - Claims                            ]
+

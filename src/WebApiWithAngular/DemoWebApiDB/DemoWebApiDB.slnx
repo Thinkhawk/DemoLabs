@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../../README.md" />
+  </Folder>
+  <Project Path="DemoWebApi.Auth/DemoWebApi.Auth.csproj" Id="79b23b0c-94d7-42f2-ae3b-a3f1543cfc0b" />
+  <Project Path="DemoWebApiDB.Data/DemoWebApiDB.Data.csproj" Id="85d6c11a-6b5c-4678-8eec-d3cce8b6072e" />
+  <Project Path="DemoWebApiDB.DtoModels/DemoWebApiDB.DtoModels.csproj" Id="154b8fd4-e36c-49b7-9ee1-e762ebc28770" />
+  <Project Path="DemoWebApiDB.Infrastructure/DemoWebApiDB.Infrastructure.csproj" Id="840b4ac3-40ab-4489-b39c-5a0bf5506724" />
+  <Project Path="DemoWebApiDB.Services/DemoWebApiDB.Services.csproj" Id="a4ede7b9-0af2-48d4-aeae-cd9d16ea3f90" />
+  <Project Path="DemoWebApiDB.Tests/DemoWebApiDB.Tests.csproj" Id="27458413-3d7d-4def-aa23-a218f8892e86" />
+  <Project Path="DemoWebApiDB/DemoWebApiDB.csproj" Id="2d76abfa-9fda-415e-8e5c-68c4cbfbf78c" />
+</Solution>
